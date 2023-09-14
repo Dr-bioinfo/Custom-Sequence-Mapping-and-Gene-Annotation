@@ -1,17 +1,31 @@
-# Off target amplicons Extraction and Mapping
+# Custom Sequence Mapping and Gene Annotation
 
 ## Overview
-This Python script is designed for the automated extraction and mapping of non-targeted sequences from a reference FASTA file. It uses various bioinformatics tools such as samtools, minimap2, and bedtools. The script also performs gene annotation and generates summary reports. After providing the required input file paths and running the script, it automates the extraction, mapping, and annotation of non-targeted sequences, making it a valuable tool for finding the impurities in your sample fasta. 
+This Python script is designed to facilitate custom sequence mapping and gene annotation tasks for genomic analysis. It automates the extraction and mapping of non-targeted sequences from a reference FASTA file using various bioinformatics tools, including samtools, minimap2, and bedtools. The script also performs gene annotation and generates summary reports. By providing the required input file paths and executing the script, users can seamlessly extract, map, and annotate non-targeted sequences, making it a valuable tool for genomics research and analysis.
+
+## Research Question
+This toolkit was developed to address questions like:
+- How can we identify non-targeted sequences within a set of genomic reads?
+- What are the affiliations of these non-targeted sequences to known genomes or regions?
+- Are these non-targeted sequences aligning with specific genes or regions of interest within the reference genome?
+- What is the depth of coverage for these aligned sequences in the reference genome?
 
 ## Prerequisites
-- Conda environment named "ID_project" with samtools, minimap2, and bedtools installed.
+- Conda environment named "ID_project" with samtools, minimap2, and bedtools installed. The .yml file has been provided 
 
-    $ conda activate ID_project
+    ```bash
+    $ conda activate mapping
+    ```
 
 ## Command
 To run the script, execute the following command:
 
-`$python non_target_auto.py -f1 /path/arg/file -f2 /path/emu/csv -f3 /path/to/itscsv/ -sam /path/to/PC.fasta -seq /path/to/the/refseq/ -gb /path/to/the/genank/ -targ /path/to/target.txt -non /path/to/non_target.fasta -fin /path/to the /finaal_csv`
+```bash
+$ python non_target_auto.py -f1 /path/arg/file -f2 /path/emu/csv -f3 /path/to/itscsv/ -sam /path/to/PC.fasta -seq /path/to/the/refseq/ -gb /path/to/the/genank/ -targ /path/to/target.txt -non /path/to/non_target.fasta -fin /path/to the /finaal_csv
+```
+
+## Customizable for Any Organism
+This toolkit is customizable for use with any organism. You can specify the reference sequence and GenBank file as arguments to tailor the analysis to your specific research needs.
 
 ## Dependencies
 - argparse
@@ -62,4 +76,4 @@ The script generates the following files:
 - `mapped_genes_info.csv`: Extracted gene information.
 - `mapped_gene_final_output.csv`: Merged mapped positions and gene information.
 
-I hope you find it interesting .. Have a good day :) 
+##### Have a GOOD DAY 
