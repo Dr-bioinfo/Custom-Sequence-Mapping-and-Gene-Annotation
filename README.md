@@ -11,7 +11,7 @@ This toolkit was developed to address questions like:
 - What is the depth of coverage for these aligned sequences in the reference genome?
 
 ## Prerequisites
-- Conda environment named "ID_project" with samtools, minimap2, and bedtools installed. The .yml file has been provided 
+- Conda environment named "mapping" with samtools, minimap2, and bedtools installed. The .yml file has been provided 
 
     ```bash
     $ conda activate mapping
