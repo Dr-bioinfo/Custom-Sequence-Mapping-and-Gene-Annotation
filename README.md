@@ -73,4 +73,4 @@ The script generates the following files:
 - `mapped_genes_info.csv`: Extracted gene information.
 - `mapped_gene_final_output.csv`: Merged mapped positions and gene information.
 
-##### Have a GOOD DAY 
+##### Have a GOOD DAY 🌻
