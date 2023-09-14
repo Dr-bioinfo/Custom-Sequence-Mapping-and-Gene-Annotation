@@ -1,7 +1,6 @@
-# This code is for ID project 
 ## Run this code in "Conda ID_project" as it need samtools, minimap2, bed tools 
 ## Command : 
-## $ conda activate ID_project
+## $ conda activate mapping 
 
 ## $python non_target_auto.py  -targ /path/to/target_header.csv -sam /path/to/PC.fasta -seq /path/to/the/refseq/ -gb /path/to/the/genank/ 
 #                              -non /path/to/output/non_target.fasta  -fin /path/to the /finaal_csv`
@@ -52,7 +51,6 @@ def compare_with_ref(ref_fasta_file, targeted_headers):
 
 # Extract Mapped regions from BED file 
 def extract_mapped_regions(bed_file):
-   # pathc = os.path.split(bed_file)[0]
     mapped_positions = []
     with open(bed_file, "r") as file:
         for line in file:
@@ -67,7 +65,6 @@ def extract_mapped_regions(bed_file):
             })
 
     # Write mapped positions to a CSV file
-   # csv_output_file = os.path.join(pathc,"mapped_positions.csv")
     csv_output_file = "mapped_positions.csv"
     with open(csv_output_file, "w", newline='') as csvfile:
         fieldnames = ["Read Name", "Start", "End"]
@@ -80,7 +77,6 @@ def extract_mapped_regions(bed_file):
 # Extract Mapped gene 
 def extract_gene_from_mapped(ref_genbank_file, pileup_out):
     mapped_genes = {}
-    #pathB = os.path.split(ref_genbank_file)[0]
     # Parse the genebank file
     with open(ref_genbank_file, "r") as genebank_handle:
         for record in SeqIO.parse(genebank_handle, "genbank"):
@@ -114,7 +110,6 @@ def extract_gene_from_mapped(ref_genbank_file, pileup_out):
                     break
 
     # Write the gene information to the CSV file
-    #csv_output_file = os.path.join(pathB,"mapped_genes_info.csv")
     csv_output_file = "mapped_genes_info.csv"
     with open(csv_output_file, "w", newline="") as csvfile:
         fieldnames = ["Gene Name", "Gene Position", "Depth"]
@@ -213,7 +208,7 @@ def main():
         sys.exit(1)
     
     pathA = os.path.split(args.non)[0]
-    print(pathA)
+    print("output folder path: ", pathA)
     
     # Step 1: Read ARG headers from input.tsv and 16S headers from input.csv
     arg_headers = read_csv_file(args.targ)
